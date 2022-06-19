@@ -50,5 +50,87 @@ while (current <= num){
     current++;
 }
 
+
+
+// ДЗ 1. Напишите программу, которая на вход принимает два числа и выдаёт, какое число большее, а какое меньшее
+
+internal class Program
+{
+    private static void Main(string[] args)
+    {
+        Console.WriteLine("Ввод двух чисел, программа выдаст большее из них");
+        int a, b;
+        Console.WriteLine("First number - ");
+        a = Convert.ToInt32(Console.ReadLine());
+        Console.WriteLine("Second number - ");
+        b = Convert.ToInt32(Console.ReadLine());
+        if (a > b)
+        {
+            Console.Write("a");
+        }
+        else
+     if (b > a)
+        {
+            Console.Write("b");
+        }
+    }
+}
+
+
+
+// ДЗ 2. Напишите программу, которая принимает на вход три числа и выдаёт максимальное из этих чисел
+
+
+internal class Program
+{
+    private static void Main(string[] args)
+    {
+        Console.WriteLine("Ввод трех чисел, программа выдаст большее из них");
+        int num1, num2, num3, max;
+        Console.WriteLine("First number - ");
+        num1 = Convert.ToInt32(Console.ReadLine());
+        Console.WriteLine("Second number - ");
+        num2 = Convert.ToInt32(Console.ReadLine());
+        Console.WriteLine("Third number - ");
+        num3 = Convert.ToInt32(Console.ReadLine());
+        if (num1 > num2)
+        {
+            max = num1;
+        }
+        else
+        {
+            max = num2;
+        }
+        if (max > num3)
+        {
+            Console.Write(max);
+            return;
+        }
+        max = num3;
+        Console.WriteLine(max);
+    }
+}
+
+
+// ДЗ 3. Напишите программу, которая на вход принимает число и выдаёт, является ли число чётным (делится ли оно на два без остатка)
+
+internal class Program
+{
+    private static void Main(string[] args)
+    {
+        Console.WriteLine("Input number ");
+        int num = Convert.ToInt32(Console.ReadLine());
+        int result = num / 2;
+        Console.WriteLine("Result is " + result);
+    }
+}
+
 */
 
+// ДЗ 4. Напишите программу, которая на вход принимает число (N), а на выходе показывает все чётные числа от 1 до N.
+Console.WriteLine("Input number ");
+        int num = Convert.ToInt32(Console.ReadLine());
+for (int x = num; x >= 1; x--){   
+if (x%2==0)
+Console.WriteLine(x);
+}
