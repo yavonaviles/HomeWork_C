@@ -125,7 +125,7 @@ internal class Program
     }
 }
 
-*/
+
 
 // ДЗ 4. Напишите программу, которая на вход принимает число (N), а на выходе показывает все чётные числа от 1 до N.
 Console.WriteLine("Input number ");
@@ -134,3 +134,71 @@ for (int x = num; x >= 1; x--){
 if (x%2==0)
 Console.WriteLine(x);
 }
+
+
+
+// ДЗ ВТОРОЙ СЕМИНАР. 1 ЗАДАЧА. Напишите программу, которая принимает на вход трёхзначное число и на выходе показывает вторую цифру этого числа.
+
+Console.Write("Введите трехзначное число: ");
+int num = Convert.ToInt32(Console.ReadLine());
+void secondNumber()
+{   int num3 = num / 10 % 10;
+    Console.WriteLine(num + " -> " + num3);
+}
+secondNumber();
+
+
+// 2 ЗАДАЧА. Напишите программу, которая выводит третью цифру заданного числа или сообщает, что третьей цифры нет.
+
+Console.Write("Введите число: ");
+int num = Convert.ToInt32(Console.ReadLine());
+void thirdNumber(){
+    if (num > 99){
+        int current = num;
+        while (current > 999){
+            current = current / 10;
+        }
+        int thirdNumber = current % 10;
+        Console.WriteLine(num + " -> " + thirdNumber);
+    }
+    else {
+        Console.WriteLine(num + "-> Третьей цифры нет");
+    }
+}
+thirdNumber();
+
+*/
+
+// 3 ЗАДАЧА. Напишите программу, которая принимает на вход цифру, обозначающую день недели, и проверяет, является ли этот день выходным.
+
+ Console.Write("Input number of the day: ");
+    int day = Convert.ToInt32(Console.ReadLine());
+
+    if (day < 1 || day > 7){
+ Console.Write("Incorrect number");
+    }
+    else{ 
+         if (day == 1){
+          Console.Write("Не выходной");
+        } 
+        if (day == 2){
+        Console.Write("Не выходной");
+        }
+        if (day == 3){
+        Console.Write("Не выходной");
+        }
+        if (day == 4){
+        Console.Write("Не выходной");
+        }
+        if (day == 5){
+        Console.Write("Не выходной");
+        }
+        if (day == 6){
+        Console.Write("Выходной");
+        }
+        if (day == 7){
+        Console.Write("Выходной");
+        }
+    }
+
+    
