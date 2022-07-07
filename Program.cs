@@ -257,5 +257,61 @@ void cube(){
 }
 cube(); 
 
-*/
 
+
+// ДЗ 4. Напишите цикл, который принимает на вход два числа (A и B) и возводит число A в натуральную степень B.
+
+void NumDegree(int first, int second)
+{   
+    int result = 1;
+    for (int i = 0; i < second; i++)
+    {
+        result = result * first;
+    }
+    Console.Write(first + "," + second + "->" + " " + result + " ");
+}
+Console.WriteLine("Введите число А: ");
+int A = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("Введите число В(степень): ");
+int B = Convert.ToInt32(Console.ReadLine());
+NumDegree(A, B);
+
+// Напишите программу, которая принимает на вход число и выдаёт сумму цифр в числе.
+Console.WriteLine("Введите число: ");
+ int a = int.Parse(Console.ReadLine());
+            int sum = 0;
+            while (a > 0)
+            {
+ 
+                sum = sum + a % 10;
+                a = a /10 ;
+ 
+            }
+ Console.WriteLine(sum);
+
+// Напишите программу, которая задаёт массив из 8 элементов и выводит их на экран.
+
+   int[] CreateRandomArray(int size)
+        {
+            int[] array = new int[size];
+            for (int i = 0; i < size; i++)
+            {
+                array[i] = new Random().Next(1,9);
+            }
+            return array;
+        }
+
+        void ShowArray(int[] array)
+        {
+            for (int i = 0; i < array.Length; i++)
+            {
+                 Console.Write(array[i] + " ");
+            }
+        }
+
+        int[] myArray = CreateRandomArray(8);
+        ShowArray(myArray);
+        Console.Write(" -> [");
+        ShowArray(myArray); 
+        Console.WriteLine("]");
+         */
