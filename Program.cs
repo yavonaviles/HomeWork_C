@@ -351,7 +351,7 @@ Console.WriteLine();
         ShowArray(myArray); 
         Console.WriteLine("]");
 
-    
+    */
 
          
      // ДЗ 5. Задайте массив заполненный случайными положительными трёхзначными числами. Напишите программу, которая покажет количество чётных чисел в массиве.
@@ -509,4 +509,3 @@ ShowNewArray(Array);
 differenceOfNumbers(Array);
 Console.WriteLine();
 
-*/
