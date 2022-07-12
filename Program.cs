@@ -288,8 +288,44 @@ Console.WriteLine("Введите число: ");
  
             }
  Console.WriteLine(sum);
+ int[] positivNumbersArray(int size)
+{
+    int[] Array = new int[size];
+    for (int i = 0; i < size; i++)
+    {
+        Array[i] = new Random().Next(100, 999);
+    }
+    return Array;
+}
 
-// Напишите программу, которая задаёт массив из 8 элементов и выводит их на экран.
+void evenNumbers(int[] Size)
+{
+    int count = 0;
+    for (int i = 0; i < Size.Length; i++)
+    {
+        if(Size[i] % 2==0)
+        {
+            count++;
+        }
+    }
+    Console.Write($" -> {count}");
+}
+
+void PrintPositivNumbersArray(int[] array)
+{
+    for (int i = 0; i < array.Length; i++)
+    {
+        Console.Write(array[i] + " ");
+    }
+}
+
+int[] Arr = positivNumbersArray(8);
+PrintPositivNumbersArray(Arr);
+evenNumbers(Arr);
+Console.WriteLine();
+
+ Напишите программу, которая задаёт массив из 8 элементов и выводит их на экран.
+
 
    int[] CreateRandomArray(int size)
         {
@@ -314,4 +350,163 @@ Console.WriteLine("Введите число: ");
         Console.Write(" -> [");
         ShowArray(myArray); 
         Console.WriteLine("]");
-         */
+
+    
+
+         
+     // ДЗ 5. Задайте массив заполненный случайными положительными трёхзначными числами. Напишите программу, которая покажет количество чётных чисел в массиве.
+
+     int[] evenNumbersArray(int size)
+{
+    int[] Array = new int[size];
+    for (int i = 0; i < size; i++)
+    {
+        Array[i] = new Random().Next(100, 999);
+    }
+    return Array;
+}
+
+void evenNumbers(int[] Size)
+{
+    int count = 0;
+    for (int i = 0; i < Size.Length; i++)
+    {
+        if(Size[i] % 2==0)
+        {
+            count++;
+        }
+    }
+    Console.Write($" -> {count}");
+}
+
+void PrintevenNumbersArray(int[] array)
+{
+    for (int i = 0; i < array.Length; i++)
+    {
+        Console.Write(array[i] + " ");
+    }
+}
+
+int[] Arr = evenNumbersArray(4);
+PrintevenNumbersArray(Arr);
+evenNumbers(Arr);
+Console.WriteLine();
+
+ 
+
+// Задайте одномерный массив, заполненный случайными числами. Найдите сумму элементов, стоящих на нечётных позициях.
+
+int[] RandomArray(int length)
+{
+    int[] array = new int [length];
+    for (int i = 0; i < length; i++)
+    {
+        array[i] = new Random().Next(1, 20);
+    }
+    return array;
+}
+
+void SummOfOddPositionNumbers(int[] size)
+{
+    int summ = 0;
+    for (int i = 0; i < size.Length; i+=2)
+    {
+        summ = summ + size[i];
+    }
+    Console.Write($" -> {summ}");
+}
+
+void ShowRandomArray(int[] Arr)
+{
+    for (int i = 0; i < Arr.Length; i++)
+    {
+        Console.Write(Arr[i] + " ");
+    }
+}
+int[] myArray = RandomArray(5);
+ShowRandomArray(myArray);
+SummOfOddPositionNumbers(myArray);
+Console.WriteLine();
+
+
+
+// Задайте одномерный массив, заполненный случайными числами. Найдите сумму элементов, стоящих на чётных позициях.(потому что в примере в дз сумма четных позиций, но в дз надо было вроде как нечетные)
+
+int[] RandomArray(int length)
+{
+    int[] array = new int [length];
+    for (int i = 0; i < length; i++)
+    {
+        array[i] = new Random().Next(1, 20);
+    }
+    return array;
+}
+
+void SummOfEvenPositionNumbers(int[] size)
+{
+    int summ = 0;
+    for (int i = 1; i < size.Length; i+=2)
+    {
+        summ = summ + size[i];
+    }
+    Console.Write($" -> {summ}");
+}
+
+void ShowRandomArray(int[] Arr)
+{
+    for (int i = 0; i < Arr.Length; i++)
+    {
+        Console.Write(Arr[i] + " ");
+    }
+}
+int[] myArray = RandomArray(5);
+ShowRandomArray(myArray);
+SummOfEvenPositionNumbers(myArray);
+Console.WriteLine();
+
+
+
+// Задайте массив вещественных чисел. Найдите разницу между максимальным и минимальным элементов массива.
+
+double[] NewArray(int size)
+{
+    double[] array = new double[size];
+    for (int i = 0; i < size; i++)
+    {
+        Random rand = new Random();
+        array[i] = rand.NextDouble() * 20;
+    }
+    return array;
+}
+
+void differenceOfNumbers(double[] size)
+{
+    double max = size[0];
+    double min = size[0];
+    for (int i = 0; i < size.Length; i++)
+    {
+        if (size[i] > max)
+        {
+            max = size[i];
+        }
+        else if(size[i] < min)
+        {
+            min = size[i];
+        }  
+    }
+    double diff = max - min;
+    Console.Write($"-> {Math.Round(diff, 0)}");
+}
+void ShowNewArray(double[] Arr)
+{
+    for (int i = 0; i < Arr.Length; i++)
+    {
+        Console.Write(Math.Round(Arr[i], 0) + " ");
+    }
+}
+double[] Array = NewArray(5);
+ShowNewArray(Array);
+differenceOfNumbers(Array);
+Console.WriteLine();
+
+*/
