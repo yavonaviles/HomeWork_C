@@ -351,7 +351,7 @@ Console.WriteLine();
         ShowArray(myArray); 
         Console.WriteLine("]");
 
-    */
+   
 
          
      // ДЗ 5. Задайте массив заполненный случайными положительными трёхзначными числами. Напишите программу, которая покажет количество чётных чисел в массиве.
@@ -509,3 +509,69 @@ ShowNewArray(Array);
 differenceOfNumbers(Array);
 Console.WriteLine();
 
+ 
+
+
+// ДЗ 6. Задача 44: Не используя рекурсию, выведите первые N чисел Фибоначчи. Первые два числа Фибоначчи: 0 и 1.
+
+int[] FibonacciArray(int num)
+{
+    int[] array = new int[num]; 
+    array[0] = 0; array[1] = 1;
+    for (int i = 2; i < num; i++)
+    {
+        array[i] = array[i-1] + array[i - 2];
+    }
+    return array;
+}
+void PrintFibonacciArray(int [] Arr)
+{
+    for (int i = 0; i < Arr.Length; i++)
+    {
+        Console.Write(Arr[i] + " ");
+    }
+}
+Console.Clear();
+Console.Write("Введите число: ");
+int N = Convert.ToInt32(Console.ReadLine());
+int[] myArray = FibonacciArray(N);
+PrintFibonacciArray(myArray);
+
+
+// Напишите программу, которая найдёт точку пересечения двух прямых, заданных уравнениями y = k1 * x + b1, y = k2 * x + b2; значения b1, k1, b2 и k2 задаются пользователем.
+
+Console.Write("Введите b1: ");
+var b1 = Convert.ToDouble(Console.ReadLine());
+Console.Write("Введите k1: ");
+var k1 = Convert.ToDouble(Console.ReadLine());
+Console.Write("Введите b2: ");
+var b2 = Convert.ToDouble(Console.ReadLine());
+Console.Write("Введите k2: ");
+var k2 = Convert.ToDouble(Console.ReadLine());
+
+var x = -(b1 - b2) / (k1 - k2);
+var y = k1 * x + b1;
+ 
+x = Math.Round(x, 3);
+y = Math.Round(y, 3);
+ 
+Console.WriteLine($"Пересечение в точке: ({x};{y})");
+
+
+// Пользователь вводит с клавиатуры M чисел. Посчитайте, сколько чисел больше 0 ввёл пользователь.
+
+Console.WriteLine("Введите числа: ");
+int[] arr = Array.ConvertAll(Console.ReadLine().Split(), int.Parse);
+int count = 0;
+ 
+for (int i = 0; i < arr.Length; i++)
+{
+    if (arr[i] > 0)
+    {
+        count++;
+    }
+}
+ 
+Console.WriteLine($"Кол-во числел больше 0: {count}");
+
+*/
