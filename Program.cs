@@ -574,4 +574,165 @@ for (int i = 0; i < arr.Length; i++)
  
 Console.WriteLine($"Кол-во числел больше 0: {count}");
 
+
+
+// ДЗ 7. Задайте двумерный массив размером m×n, заполненный случайными вещественными числами.
+
+Console.Write("Введите m: ");
+int m = Convert.ToInt32(Console.ReadLine());
+Console.Write("Введите n: ");
+int n = Convert.ToInt32(Console.ReadLine());
+
+Console.Clear();
+Console.WriteLine($"m = {m}, n = {n}.");
+
+double[,] array = new double[m, n];
+
+CreateArrayDouble(array);
+
+WriteArray(array);
+
+Console.WriteLine();
+
+void CreateArrayDouble(double[,] array)
+{
+  for (int i = 0; i < m; i++)
+  {
+    for (int j = 0; j < n; j++)
+    {
+      array[i, j] = new Random().NextDouble() * 20 - 10;
+    }
+  }
+}
+
+void WriteArray (double[,] array){
+for (int i = 0; i < m; i++)
+  {
+      for (int j = 0; j < n; j++)
+      {
+        double alignNumber = Math.Round(array[i, j], 1);
+        Console.Write(alignNumber + " ");
+      }
+      Console.WriteLine();
+  }
+}
+
+// Напишите программу, которая на вход принимает позиции элемента в двумерном массиве, и возвращает значение этого элемента или же указание, что такого элемента нет.
+
+
+int[,] NewArray(int rows, int columns, int min, int max)
+{
+    int[,] newArray = new int[rows, columns];
+    for (int i = 0; i < rows; i++)
+    {
+        for (int j= 0; j < columns; j++)
+        {
+            newArray[i,j] = new Random().Next(min, max+1);
+        }
+    }
+    return newArray;
+}
+
+void PrintNewArray(int[,] Arr)
+{
+    for (int i = 0; i < Arr.GetLength(0); i++)
+    {
+        for (int j = 0; j < Arr.GetLength(1); j++)
+        {
+            Console.Write($"{Arr[i,j]} ");
+        }
+        Console.WriteLine();
+    }
+}
+
+bool FindElementArray(int[,] Array, int r, int c)
+{
+    for (int i = 0; i < Array.GetLength(0); i++)
+    {
+        for (int j = 0; j < Array.GetLength(1); j++)
+        {
+            if(i==r && j==c) return true;
+
+        }
+    }
+    return false;
+}
+
+
+
+Console.Clear();
+Console.Write("Строки: ");
+int Rows = Convert.ToInt32(Console.ReadLine());
+Console.Write("Столбцы: ");
+int Columns = Convert.ToInt32(Console.ReadLine());
+int[,] myArray = NewArray(Rows, Columns, 0, 10);
+PrintNewArray(myArray);
+Console.Write("Позиция элемента по строку: ");
+int R = Convert.ToInt32(Console.ReadLine());
+Console.Write("Позиция элемента по столбцам: ");
+int C = Convert.ToInt32(Console.ReadLine());
+if(FindElementArray(myArray, R,C))
+{
+    Console.WriteLine($"{R}, {C} -> элемент найден");
+}
+else
+{
+    Console.WriteLine($"{R}, {C} -> элемент не найден");
+}
+
+
+// Задайте двумерный массив из целых чисел. Найдите среднее арифметическое элементов в каждом столбце.
+
+int[,] RandomArray(int row, int column, int min, int max)
+{
+    int[,] newArray = new int[row, column];
+    for (int i = 0; i < row; i++)
+    {
+        for (int j = 0; j < column; j++)
+        {
+            newArray[i,j] = new Random().Next(min, max);
+        }
+    }
+    return newArray;
+}
+
+double[] ArifmeticMeanOfNumbersInColumns(int[,] ourArray)
+{   
+    double[] arifmeticMeanOfElemets = new double[ourArray.GetLength(1)];
+    for (int i = 0; i < ourArray.GetLength(1); i++)
+    {
+        double summOfElements = 0;
+        for (int j = 0; j < ourArray.GetLength(0); j++)
+        {
+            summOfElements += ourArray[j,i];
+        }
+        arifmeticMeanOfElemets[i] = Math.Round(summOfElements / ourArray.GetLength(0), 2);
+    }
+    return arifmeticMeanOfElemets;
+}
+
+
+void PrintNewArray(int [,] Arr)
+{
+    for (int i = 0; i < Arr.GetLength(0); i++)
+    {
+        for (int j = 0; j < Arr.GetLength(1); j++)
+        {
+            Console.Write(Arr[i,j] + " ");
+        }
+        Console.WriteLine();
+    }
+}
+
+Console.Clear();
+Console.Write("Input rows: ");
+int Rw = Convert.ToInt32(Console.ReadLine());
+Console.Write("Input columns: ");
+int Col = Convert.ToInt32(Console.ReadLine());
+int[,] myNewArr = RandomArray(Rw, Col, 0, 10);
+PrintNewArray(myNewArr);
+
+double [] Result = ArifmeticMeanOfNumbersInColumns(myNewArr);
+Console.WriteLine($"Arifmetic mean of each column = {String.Join("; ",Result)}");
+
 */
