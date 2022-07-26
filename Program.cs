@@ -735,4 +735,328 @@ PrintNewArray(myNewArr);
 double [] Result = ArifmeticMeanOfNumbersInColumns(myNewArr);
 Console.WriteLine($"Arifmetic mean of each column = {String.Join("; ",Result)}");
 
+ДЗ 8. 
+//Задача 54: Задайте двумерный массив. Напишите программу, которая упорядочит по убыванию элементы каждой строки двумерного массива.
+
+Console.WriteLine($"Введите размер двумерного массива a, b и диапазон случайных значений:");
+
+Console.WriteLine("Введите a: ");
+int a = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine($"\nВведите b: ");
+int b = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine($"\nВведите диапазон: от 1 до ");
+int range = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine();
+
+int[,] array = new int[a, b];
+CreateArray(array);
+WriteArray(array);
+
+Console.WriteLine($"\nОтсортированный массив: ");
+OrderArray(array);
+WriteArray(array);
+
+void CreateArray(int[,] array)
+{
+    for (int i = 0; i < array.GetLength(0); i++)
+    {
+        for (int j = 0; j < array.GetLength(1); j++)
+        {
+            array[i, j] = new Random().Next(1, range+1);
+        }
+    }
+}
+
+void WriteArray(int[,] array)
+{
+    for (int i = 0; i < array.GetLength(0); i++)
+    {
+        for (int j = 0; j < array.GetLength(1); j++)
+        {
+            Console.Write(array[i, j] + " ");
+        }
+        Console.WriteLine();
+    }
+}
+
+void OrderArray(int[,] array)
+{
+    for (int i = 0; i < array.GetLength(0); i++)
+    {
+        for (int j = 0; j < array.GetLength(1); j++)
+        {
+            for (int k = 0; k < array.GetLength(1) - 1; k++)
+            {
+                if (array[i, k] < array[i, k + 1])
+                {
+                    int temp = array[i, k + 1];
+                    array[i, k + 1] = array[i, k];
+                    array[i, k] = temp;
+                }
+            }
+        }
+    }
+}
+
+
+
+// Задача 56: Задайте прямоугольный двумерный массив. Напишите программу, которая будет находить строку с наименьшей суммой элементов.
+
+Console.WriteLine($"Введите размер двумерного массива a, b и диапазон случайных значений:");
+
+Console.WriteLine("Введите a: ");
+int a = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine($"\nВведите b: ");
+int b = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine($"\nВведите диапазон: от 1 до ");
+int range = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine();
+
+int[,] array = new int[a, b];
+CreateArray(array);
+WriteArray(array);
+
+int result = 0;
+int firstLineSum = SumOfElements(array, 0);
+for (int i = 1; i < array.GetLength(0); i++)
+{
+    int tempSum = SumOfElements(array, i);
+    if (firstLineSum > tempSum)
+    {
+        firstLineSum = tempSum;
+        result = i;
+    }
+}
+
+Console.WriteLine($"\n{result + 1} - строкa с наименьшей суммой элементов. Сумма =  {firstLineSum}");
+
+void CreateArray(int[,] array)
+{
+    for (int i = 0; i < array.GetLength(0); i++)
+    {
+        for (int j = 0; j < array.GetLength(1); j++)
+        {
+            array[i, j] = new Random().Next( 1, range+1  );
+        }
+    }
+}
+
+void WriteArray(int[,] array)
+{
+    for (int i = 0; i < array.GetLength(0); i++)
+    {
+        for (int j = 0; j < array.GetLength(1); j++)
+        {
+            Console.Write(array[i, j] + " ");
+        }
+        Console.WriteLine();
+    }
+}
+
+int SumOfElements(int[,] array, int i)
+{
+    int sumLine = array[i, 0];
+    for (int j = 1; j < array.GetLength(1); j++)
+    {
+        sumLine += array[i, j];
+    }
+    return sumLine;
+}
+
+
+// Задача 58: Задайте две матрицы. Напишите программу, которая будет находить произведение двух матриц.
+
+Console.WriteLine($"Введите размер первой матрицы a, b и диапазон случайных значений:");
+
+Console.WriteLine("Введите a: ");
+int a = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine($"\nВведите b: ");
+int b = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine($"\nВведите диапазон: от 1 до ");
+int range = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine();
+
+int[,] firstMartrix = new int[a, b];
+CreateArray(firstMartrix, range);
+Console.WriteLine($"\nПервая матрица:");
+WriteArray(firstMartrix);
+
+Console.WriteLine($"\nВведите размер второй матрицы с, d и диапазон случайных значений:");
+
+Console.WriteLine("Введите a: ");
+int с = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine($"\nВведите b: ");
+int d = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine($"\nВведите диапазон: от 1 до ");
+int range2 = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine();
+
+int[,] secomdMartrix = new int[с, d];
+CreateArray(secomdMartrix, range2);
+Console.WriteLine($"\nВторая матрица:");
+WriteArray(secomdMartrix);
+
+var result = MultiplyMatrix(firstMartrix, secomdMartrix);
+Console.WriteLine($"\nПроизведение первой и второй матриц:");
+WriteArray(result);
+
+void CreateArray(int[,] array, int range)
+{
+    for (int i = 0; i < array.GetLength(0); i++)
+    {
+        for (int j = 0; j < array.GetLength(1); j++)
+        {
+            array[i, j] = new Random().Next(1, range + 1);
+        }
+    }
+}
+
+void WriteArray(int[,] array)
+{
+    for (int i = 0; i < array.GetLength(0); i++)
+    {
+        for (int j = 0; j < array.GetLength(1); j++)
+        {
+            Console.Write(array[i, j] + " ");
+        }
+        Console.WriteLine();
+    }
+}
+
+int[,] MultiplyMatrix(int[,] firstMartrix, int[,] secondMartrix)
+{
+    if (ColumnsCount(firstMartrix) != RowsCount(secondMartrix))
+    {
+        throw new Exception("Умножение не возможно! Количество столбцов первой матрицы не равно количеству строк второй матрицы.");
+    }
+
+    var matrixC = new int[RowsCount(firstMartrix), ColumnsCount(secondMartrix)];
+
+    for (var i = 0; i < RowsCount(firstMartrix); i++)
+    {
+        for (var j = 0; j < ColumnsCount(secondMartrix); j++)
+        {
+            matrixC[i, j] = 0;
+
+            for (var k = 0; k < ColumnsCount(firstMartrix); k++)
+            {
+                matrixC[i, j] += firstMartrix[i, k] * secondMartrix[k, j];
+            }
+        }
+    }
+
+    return matrixC;
+}
+
+int RowsCount(int[,] matrix)
+{
+    return matrix.GetUpperBound(0) + 1;
+}
+
+int ColumnsCount(int[,] matrix)
+{
+    return matrix.GetUpperBound(1) + 1;
+}
+
+
+
+// Задача 59: Задайте двумерный массив из целых чисел.
+// Напишите программу, которая удалит строку и столбец, на пересечении которых расположен наименьший элемент массива.
+// Например, задан массив:
+// 1 4 7 2
+// 5 9 2 3
+// 8 4 2 4
+// 5 2 6 7
+// Наименьший элемент - 1, на выходе получим
+// следующий массив:
+// 9 4 2
+// 2 2 6
+// 3 4 7
+
+
+Console.WriteLine("Введите a: ");
+int a = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine($"\nВведите b: ");
+int b = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine($"\nВведите диапазон: от 1 до ");
+int range = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine();
+
+int[,] array = new int[a, b];
+CreateArray(array);
+WriteArray(array);
+
+int[,] positionOfSmallestElement = new int[1, 2];
+positionOfSmallestElement = GetPositionOfSmallestElement(array, positionOfSmallestElement);
+Console.Write($"Позиция элемента: \n");
+WriteArray(positionOfSmallestElement);
+
+int[,] arrayWithoutLines = new int[array.GetLength(0) - 1, array.GetLength(1) - 1];
+DeleteLines(array, positionOfSmallestElement, arrayWithoutLines);
+Console.WriteLine($"\nПолучившийся массив:");
+WriteArray(arrayWithoutLines);
+
+void CreateArray(int[,] array)
+{
+    for (int i = 0; i < array.GetLength(0); i++)
+    {
+        for (int j = 0; j < array.GetLength(1); j++)
+        {
+            array[i, j] = new Random().Next(1, range + 1);
+        }
+    }
+}
+
+void WriteArray(int[,] array)
+{
+    for (int i = 0; i < array.GetLength(0); i++)
+    {
+        for (int j = 0; j < array.GetLength(1); j++)
+        {
+            Console.Write(array[i, j] + " ");
+        }
+        Console.WriteLine();
+    }
+}
+
+int[,] GetPositionOfSmallestElement(int[,] array, int[,] position)
+{
+    int temp = array[0, 0];
+    for (int i = 0; i < array.GetLength(0); i++)
+    {
+        for (int j = 0; j < array.GetLength(1); j++)
+        {
+            if (array[i, j] <= temp)
+            {
+                position[0, 0] = i;
+                position[0, 1] = j;
+                temp = array[i, j];
+            }
+        }
+    }
+    Console.WriteLine($"\nMинимальный элемент: {temp}");
+    return position;
+}
+
+void DeleteLines(int[,] array, int[,] positionOfSmallestElement, int[,] arrayWithoutLines)
+{
+    int k = 0, l = 0;
+    for (int i = 0; i < array.GetLength(0); i++)
+    {
+        for (int j = 0; j < array.GetLength(1); j++)
+        {
+            if (positionOfSmallestElement[0, 0] != i && positionOfSmallestElement[0, 1] != j)
+            {
+                arrayWithoutLines[k, l] = array[i, j];
+                l++;
+            }
+        }
+        l = 0;
+        if (positionOfSmallestElement[0, 0] != i)
+        {
+            k++;
+        }
+    }
+}
+
 */
